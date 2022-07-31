@@ -24,11 +24,12 @@ class _LocationScreenState extends State<LocationScreen> {
     updateUI(widget.locationWeather);
   }
 
-  void updateUI(Future<dynamic> weatherDataFuture) async {
-    final weatherData = await weatherDataFuture;
+  void updateUI(Map<String, dynamic> weatherDataFuture) {
+    final weatherData = weatherDataFuture;
+
     setState(() {
       if (weatherData == null) {
-        temperature = '' as double;
+        temperature = 0.0;
         weatherIcon = 'Error';
         weatherMessage = 'Unable to get weather data';
         cityName = '';
@@ -108,7 +109,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      'weatherIcon',
+                      weatherIcon ?? '',
                       style: kConditionTextStyle,
                     ),
                   ],

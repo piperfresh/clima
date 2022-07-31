@@ -20,7 +20,7 @@ class WeatherModel {
     var longitude = location.longitude;
 
     NetworkHelper networkHelper = NetworkHelper(
-        '$openWeatherMapUrl?lat=$latitude&lon=$longitude&appid={API key}&units=metric');
+        '$openWeatherMapUrl?lat=$latitude&lon=$longitude&appid=32e2363b1fc4017b01549aa4a8735dd2&units=metric');
 
     var weatherData = await networkHelper.getData();
 
